@@ -1,0 +1,1531 @@
+tsc -b
+tsc -b tests/taint_precision/tests/
+node --trace-uncaught --stack-trace-limit=20 tests/taint_precision/run_unit.js
+Running test: arrayImprecise.js
+Running test: arrayPrecise.js
+Running test: arrays.js
+Running test: assignment.js
+Running test: async.js
+Running test: binop.js
+Running test: binop_equality.js
+Running test: callback.js
+Running test: callback_external.js
+Running test: clear.js
+Running test: comparisons.js
+Running test: constructor.js
+Running test: error_eval.js
+Running test: func_call.js
+Running test: functionPrototype.js
+Running test: functionPrototypeArrPrecise.js
+Running test: global.js
+Running test: has.js
+Running test: json.js
+Running test: logical_or.js
+Running test: loops.js
+Running test: native_functions.js
+Running test: new_function_error.js
+Running test: object_functions.js
+Running test: object_inherit.js
+Running test: object_nesting.js
+Running test: object_taint.js
+Running test: prop_map.js
+Running test: prototype.js
+Running test: putfield.js
+Running test: spread.js
+Running test: stringModelArrPrecise.js
+Running test: string_concat.js
+Running test: string_inherit.js
+Running test: string_invariants.js
+Running test: string_precise.js
+Running test: string_prototype.js
+Running test: string_taint.js
+Running test: ternary_op.js
+Running test: toString.js
+Running test: typeof.js
+Running test: unary.js
+Running test: undefined_null.js
+
+---------- String Taint Inheritence --------------
+Should succeed: z should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: w should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: z should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: z[1] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: w.a should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+--------------- Constructors Operations ----------------
+Should succeed: inheriting from a constructor with no parameters
+    [x] Success2: Assertion ran without error
+Should succeed: Person inheritance
+    [x] Success2: Assertion ran without error
+Should succeed: Teacher inheritance
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+--------------- Logical OR (1) -----------------
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b in b = a || false should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Logical OR (2) -----------------
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b in b = false || a should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------- Object Taint Inheritence -------------
+Should succeed: e should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e.a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: r should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: r.a should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+---------- parseInt --------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: parseInt(a) should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- parseFloat --------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: parseFloat(a) should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- isFinite --------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: isFinite(a) should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- isNaN --------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: isNaN(a) should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- Put Field Tests (1) -------------------
+Should succeed: Setting taint on k
+    [x] Success1: No error, but did assertion run?
+Should succeed: k should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b.styles should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: k should still be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- Precise Array tests (1) -------------------
+Should succeed: Setting taint on b
+    [x] Success1: No error, but did assertion run?
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[1] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+-----------------  Precise Array tests (2) -------------------
+Should succeed: Setting taint on b
+    [x] Success1: No error, but did assertion run?
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[1] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+-----------------  Precise Array tests (3) -------------------
+Should succeed: Setting taint on b
+    [x] Success1: No error, but did assertion run?
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[1] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+-----------------  Precise Array tests (4) -------------------
+Should succeed: Setting taint on b
+    [x] Success1: No error, but did assertion run?
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[1] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- Global test -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should fail: Modifying global with a should fail
+    [x] Success: Recorded an error as expected
+---------- Test End ------------
+
+------------- String Taint (Precise) -----------
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: No character of a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Only a[1] should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- JSON tests (1) -------------------
+Should succeed: Setting taint on x.a
+    [x] Success1: No error, but did assertion run?
+Should succeed: Setting taint on x.b
+    [x] Success1: No error, but did assertion run?
+Should succeed: Setting taint on x.c
+    [x] Success1: No error, but did assertion run?
+Should succeed: Setting taint on x.d
+    [x] Success1: No error, but did assertion run?
+---------- Test End ------------
+
+-------------- Ternary Op (1) ----------------
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d in d = a ? b : c should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+-------------- Ternary Op (2) ----------------
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d in d = a ? b : c should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+-------------- Ternary Op (3) ----------------
+Should succeed: c should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d in d = a ? b : c should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- Assignment Tests -------------------
+Should succeed: x is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: y.name is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: y.test is not tainted
+    [x] Success2: Assertion ran without error
+Should succeed: y is not tainted
+    [x] Success2: Assertion ran without error
+Should succeed: z[new] is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: z is not tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e is not tainted
+    [x] Success2: Assertion ran without error
+Should succeed: f is tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- Array tests (0) -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+----------------- Array tests (1) -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.pop() should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+----------------- Array tests (2) -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.pop() should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+---------- Testing Array.join() -------- 
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: a[0:5] is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b[0][0:5] is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: 'Hello' should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: The rest of b should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing Precise str.split() --------
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: a.split('')[0:5] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.split('')[5:8] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.split(',')[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.split(',')[1] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.split('e')[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.split('e')[1][0:3] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.split('e')[1][3:] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+--------------- Function Application via apply ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: id.apply(a) should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: id.apply(b) should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- new Function test -------------------
+Should succeed: Setting taint on x
+    [x] Success1: No error, but did assertion run?
+Should succeed: x should be tainted
+    [x] Success2: Assertion ran without error
+Should fail: new Function(x) should error
+    [x] Success: Recorded an error as expected
+---------- Test End ------------
+Uncaught exception: Sink function Function() { [native code] } reached with tainted arguments [object Arguments]
+
+
+----------------- Comparison tests -------------------
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b in b = ('b' in a) should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- Has test -------------------
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b in b = ('b' in a) should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- Spread tests (1) -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+----------------- Spread tests (2) -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: ...b should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+--------------- Loops ----------------
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a incremented should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a incremented should be tainted  2
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+------------- Clearing Taint -----------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Clearing taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+--------------- Promisify ----------------
+Should succeed: Setting taint on test
+    [x] Success1: No error, but did assertion run?
+Should fail: Wrapped exec sink should be hit
+    [x] Success: Recorded an error as expected
+---------- Test End ------------
+Uncaught exception: Sink (...args) => {
+    const { promise, resolve, reject } = createDeferredPromise();
+
+    promise.child = orig(...args, (err, stdout, stderr) => {
+      if (err !== null) {
+        err.stdout = stdout;
+        err.stderr = stderr;
+        reject(err);
+      } else {
+        resolve({ stdout, stderr });
+      }
+    });
+
+    return promise;
+  } reached with tainted arguments [object Arguments]
+
+
+------------------ Undefined -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = a + b should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+------------------ Null -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = a + b should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- Imprecise Array tests (1) -------------------
+Should succeed: Setting taint on b
+    [x] Success1: No error, but did assertion run?
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[1] should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+----------------- Imprecise Array tests (2) -------------------
+Should succeed: Setting taint on b
+    [x] Success1: No error, but did assertion run?
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[1] should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+----------------- Imprecise Array tests (3) -------------------
+Should succeed: Setting taint on b
+    [x] Success1: No error, but did assertion run?
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[1] should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+----------------- Imprecise Array tests (4) -------------------
+Should succeed: Setting taint on b
+    [x] Success1: No error, but did assertion run?
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[1] should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+--------------- Binary Operations (1) ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = a + b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d in d = b + a should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Binary Operations (2) ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = a + b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d in d = b + a should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+------------- String.prototype.concat -----------
+Should succeed: Setting taint on a 
+    [x] Success1: No error, but did assertion run?
+Should fail: c in c = a + b should be tainted
+    [x] Success: Recorded an error as expected
+---------- Test End ------------
+------------- String.prototype.concat (Precise, left) -----------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: c in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0:a.length] in c = a + b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[a.length:c.length] in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+------------- String.prototype.concat (Precise, right) -----------
+Should succeed: Setting taint on b
+    [x] Success1: No error, but did assertion run?
+Should succeed: c in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0:a.length] in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[a.length:c.length] in c = a + b should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+--------------- Function Call ----------------
+Should succeed: Setting taint on arg
+    [x] Success1: No error, but did assertion run?
+Should succeed: arg should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: ret should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: ret in ret = test(arg) should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Regression: WInvokeFun should be empty at the end for external functions
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Recursive Call ----------------
+Should succeed: Setting taint on arg
+    [x] Success1: No error, but did assertion run?
+Should succeed: arg should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: ret in ret = test(arg, 10) should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+--------------- Typeof Transparency (number) ----------------
+Should succeed: typeof a should be 'number'
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: typeof a should still be 'number'
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Typeof Transparency (string) ----------------
+Should succeed: typeof a should be 'string'
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: typeof a should still be 'string'
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Typeof Transparency (boolean) ----------------
+Should succeed: typeof a should be 'boolean'
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: typeof a should still be 'boolean'
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Typeof Transparency (undefined) ----------------
+Should succeed: typeof a should be 'undefined'
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: typeof a should still be 'undefined'
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Typeof Transparency (null) ----------------
+Should succeed: typeof a should be 'object'
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: typeof a should still be 'object'
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Typeof Transparency (object) ----------------
+Should succeed: typeof a should be 'object'
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: typeof a should still be 'object'
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- Object prototype modification -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should fail: Modifying b's prototype should fail
+    [x] Success: Recorded an error as expected
+---------- Test End ------------
+----------------- String prototype modification -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should fail: Modifying b's prototype should fail
+    [x] Success: Recorded an error as expected
+---------- Test End ------------
+----------------- Array prototype modification -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should fail: Modifying b's prototype should fail
+    [x] Success: Recorded an error as expected
+---------- Test End ------------
+
+-------------- toString (1) ----------------
+Should succeed: Joining the array should work
+    [x] Success1: No error, but did assertion run?
+---------- Test End ------------
+-------------- toString (2) ----------------
+Should succeed: Joining the array should work
+    [x] Success1: No error, but did assertion run?
+---------- Test End ------------
+-------------- toString (3) ----------------
+Should succeed: Binary op on y + str should work
+    [x] Success1: No error, but did assertion run?
+---------- Test End ------------
+-------------- toString (4) ----------------
+Should succeed: The error should be raised and caught
+    [x] Success1: No error, but did assertion run?
+---------- Test End ------------
+
+--------------- Equality Operations Correctness ----------------
+Should succeed: NOTE 1a: coerce string comparison
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 1b: coerce string comparison
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 1c: coerce string comparison
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 1d: coerce Numeric comparison
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 1e: coerce Numeric comparison
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 1f: coerce Numeric comparison
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 1d: coerce boolean comparison
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 1e: coerce boolean comparison
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 1f: coerce boolean comparison
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 2a: De Morgan's and Symmetric
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 2b: De Morgan's and Symmetric
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 2c: De Morgan's and Symmetric
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 2d: De Morgan's and Symmetric
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 3a: Transitivity (and the lack of)
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 3b: Transitivity (and the lack of)
+    [x] Success1: No error, but did assertion run?
+Should succeed: NOTE 3c: Transitivity (and the lack of)
+    [x] Success1: No error, but did assertion run?
+---------- Test End ------------
+
+----------------- Eval test -------------------
+Should succeed: x should be tainted
+    [x] Success2: Assertion ran without error
+Should fail: eval(x) should error
+    [x] Success: Recorded an error as expected
+---------- Test End ------------
+Uncaught exception: Sink function eval reached with tainted argument [String: 'console.lo
+
+
+--------------- Default Function Application ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: id(a) should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: id(b) should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Function Application via call ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: id.call(a) should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: id.call(b) should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Function Application via apply ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: id.apply(a) should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: id.apply(b) should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Function Application After bind ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: id.bind(a)() should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: id.bind(b)() should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+---------- Object tainting --------
+Should succeed: x should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on x
+    [x] Success1: No error, but did assertion run?
+Should succeed: x should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object property (object) tainting 1 --------
+Should succeed: x should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on x
+    [x] Success1: No error, but did assertion run?
+Should succeed: x should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: x.test should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object property (object) tainting 2 --------
+Should succeed: x should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on x.test
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.test should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: x should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object property (object) tainting 3 --------
+Should succeed: x should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on x.test1
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.test1 should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: x.test2 should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: x should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object property (primitive) tainting 1 --------
+Should succeed: x should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on x
+    [x] Success1: No error, but did assertion run?
+Should succeed: x should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: x.test should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object property (primitive) tainting 2 --------
+Should succeed: x should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on x.test
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.test should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: x should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object property (primitive) tainting 3 --------
+Should succeed: x should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on x.test1
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.test1 should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: x.test2 should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: x should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+---------- Object.toString() 1 --------
+Should succeed: Setting taint on x
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.toString() should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object.toString() 2 --------
+Should succeed: Setting taint on x.test
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.toString() should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object.toString() 3 --------
+Should succeed: Setting taint on x.test
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.toString() should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object.valueOf() 1 --------
+Should succeed: Setting taint on x
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.valueOf() should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object.valueOf() 2 --------
+Should succeed: Setting taint on x.test
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.valueOf() should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object.valueOf() 3 --------
+Should succeed: Setting taint on x
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.valueOf() should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object.hasOwnProperty() 1 --------
+Should succeed: Setting taint on x
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.hasOwnProperty('test') should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object.hasOwnProperty() 2 --------
+Should succeed: Setting taint on x.test
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.hasOwnProperty('test') should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Object.hasOwnProperty() 3 --------
+Should succeed: Setting taint on x.test1
+    [x] Success1: No error, but did assertion run?
+Should succeed: x.hasOwnProperty('test1') should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+------------- String Concatenation -----------
+Should succeed: Setting taint on a 
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should fail: c in c = a + b should be tainted
+    [x] Success: Recorded an error as expected
+---------- Test End ------------
+------------- String Concatenation (Precise, left) -----------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Every character of a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: No character of b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0:a.length] in c = a + b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[a.length:c.length] in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+------------- String Concatenation (Precise, right) -----------
+Should succeed: Setting taint on b
+    [x] Success1: No error, but did assertion run?
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Every character of b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: No character of a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0:a.length] in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[a.length:c.length] in c = a + b should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+------------- String Concat w/ coercion (1) -----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Every character of a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0:a.length] in c = a + b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[a.length:c.length] in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+------------- String Concat w/ coercion (2) -----------------
+Should succeed: Setting taint on b
+    [x] Success1: No error, but did assertion run?
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Every character of a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0:a.length] in c = a + b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[a.length:c.length] in c = a + b should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+--------------- Unary Operations ----------------
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = +b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = +a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = -b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = -a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = ~b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = ~a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = !e should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = !d should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = typeof e should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = typeof d should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = void e should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c in c = void d should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: g should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: g.lol should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: g should be tainted after delete
+    [x] Success2: Assertion ran without error
+Should succeed: g should not have g.lol
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- Nested object test (1) -------------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b.c should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+----------------- Nested object test (2) -------------------
+Should succeed: Setting taint on a.b
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b.c should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+----------------- Nested object test (3) -------------------
+Should succeed: Setting taint on a.b.c
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b.c should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+------------ Nested object through native context (1) -------------
+Should succeed: Setting taint on a.b.c
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b.c should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Defining property d on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b.c should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.d should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+------------ Nested object through native context (2) -------------
+Should succeed: Setting taint on a.b.c
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b.c should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b.d should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.e should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Defining property f on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b.c should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.b.d should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.e should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.f should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+----------------- Prop Map Tests (1) -------------------
+Should succeed: Setting taint on a[0]
+    [x] Success1: No error, but did assertion run?
+Should fail: a[0] should be tainted
+    [x] Success: Recorded an error as expected
+Should succeed: Setting taint on b, 0
+    [x] Success1: No error, but did assertion run?
+Should succeed: b[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on c[0]
+    [x] Success1: No error, but did assertion run?
+Should fail: c[0] should be tainted
+    [x] Success: Recorded an error as expected
+Should succeed: Setting taint on d[0]
+    [x] Success1: No error, but did assertion run?
+Should succeed: d[0] should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+----------------- Prop Map Tests (2) -------------------
+Should succeed: Setting taint on a.b[0]
+    [x] Success1: No error, but did assertion run?
+Should fail: a.b[0] should be tainted
+    [x] Success: Recorded an error as expected
+Should succeed: Setting taint on b.b, 0
+    [x] Success1: No error, but did assertion run?
+Should succeed: b.b[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on c.b[0]
+    [x] Success1: No error, but did assertion run?
+Should fail: c.b[0] should be tainted
+    [x] Success: Recorded an error as expected
+Should succeed: Setting taint on d.b
+    [x] Success1: No error, but did assertion run?
+Should succeed: d.b[0] should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+----------------- Prop Map Tests (3) -------------------
+Should succeed: Setting taint on a.b
+    [x] Success1: No error, but did assertion run?
+Should succeed: a.b should be tainted
+    [x] Success2: Assertion ran without error
+Should fail: Setting taint on b, 'b'
+    [x] Success: Recorded an error as expected
+Should fail: b.b should be tainted
+    [x] Success: Recorded an error as expected
+Should succeed: Setting taint on c.b
+    [x] Success1: No error, but did assertion run?
+Should fail: c.b should be tainted
+    [x] Success: Recorded an error as expected
+Should fail: Setting taint on d, 'b'
+    [x] Success: Recorded an error as expected
+Should fail: d.b should be tainted
+    [x] Success: Recorded an error as expected
+---------- Test End ------------
+----------------- Prop Map Tests (4) -------------------
+Should succeed: Setting taint on a.b
+    [x] Success1: No error, but did assertion run?
+Should succeed: a.b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.d should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on a['d']
+    [x] Success1: No error, but did assertion run?
+Should succeed: a.d should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+----------------- Prop Map Tests (5) -------------------
+Should succeed: Setting taint on a.b
+    [x] Success1: No error, but did assertion run?
+Should succeed: a.b should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.d should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+------------- String Invariants (1) -----------
+Should succeed: Setting taint on a 
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: H should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: l should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: l should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: o should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Clearing taint on H
+    [x] Success1: No error, but did assertion run?
+Should succeed: H should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: H should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: l should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: l should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: o should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+------------- String Invariants (2) -----------
+Should succeed: Setting taint on H
+    [x] Success1: No error, but did assertion run?
+Should succeed: H should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: l should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: l should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: o should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.length should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+------------- String Invariants (3) -----------
+Should fail: No properties of a are tainted
+    [x] Success: Recorded an error as expected
+Should succeed: Setting taint on h
+    [x] Success1: No error, but did assertion run?
+Should succeed: Some property of a is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: h is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: i is not tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a is not tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on i
+    [x] Success1: No error, but did assertion run?
+Should succeed: h is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: i is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a is tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+---------- String Taint Propagation Test --------
+Should succeed: q should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Setting taint on z[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: z[0:5] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: q.a[0:5] should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing str.indexOf() --------
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: a.indexOf('e') should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.indexOf('e', 2) should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing str.slice()--------
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: a.slice(0, 5) should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Entire slice should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.slice(5, 8) should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Entire slice should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing str.toLowerCase() --------
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: a.toLowerCase[0:5] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.toLowerCase[5:8] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing str.blink() --------
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: '<blink>' in a.blink() should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: 'Hello' in a.blink() should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: The rest of a.blink() should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing str.concat() --------
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: 'Hello,' should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: The rest of a.concat(C1, C2) should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing Array.join() -------- 
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a is tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing Imprecise str.split() --------
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: a.split('') should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.split(',') should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing str.substring() -------- 
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: 'lo' should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: The rest of b should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing str.toUpperCase() -------- 
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: 'Hello' should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: The rest of b should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing str.charCodeAt() -------- 
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: a.charCodeAt() should be tainted here
+    [x] Success2: Assertion ran without error
+Should succeed: a.charCodeAt() should not be tainted here
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+---------- Testing str.codePointAt() -------- 
+Should succeed: Setting taint on a[0:5]
+    [x] Success1: No error, but did assertion run?
+Should succeed: a.codePointAt() should be tainted here
+    [x] Success2: Assertion ran without error
+Should succeed: a.codePointAt() should not be tainted here
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+--------------- Reduce Tests ----------------
+Should succeed: Set Taint on all characters of AAA
+    [x] Success1: No error, but did assertion run?
+Should succeed: All characters of AAA should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: Set Taint on all characters of CCC
+    [x] Success1: No error, but did assertion run?
+Should succeed: No characters of BBB should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All characters of CCC should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a_identity[0] should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a_identity[1] should still not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a_identity[2] should still be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a_accumulate[0:AAA.length] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a_accumulate[AAA.length:AAA.length+BBB.length] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a_accumulate[AAA.length+BBB.length:] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a_native[0:AAA.length] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a_native[AAA.length:AAA.length+BBB.length] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a_native[AAA.length+BBB.length:] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a_external[0:AAA.length] should be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Map Tests (objects) ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a.test should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b.test should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[1] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d[1] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e[1] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: f[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: f[1] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: g[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: g[1] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Map Tests (primitive) 1 ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: All bytes of a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All bytes of b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All bytes of c[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All bytes of c[1] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All bytes of d[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All bytes of d[1] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e[1] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All bytes of f[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All bytes of f[1] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Map Tests (primitive) 2 ----------------
+Should succeed: Setting taint on a[0:2]
+    [x] Success1: No error, but did assertion run?
+Should succeed: a[0:2] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: a[2:] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All bytes of b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0][0:2] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0][2:] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All bytes of c[1] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d[0][0:2] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d[0][2:] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All bytes of d[1] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: e[1] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: f[0][0:2] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: f[0][2:] should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: All bytes of f[1] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Map Tests (primitive) 3 ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[1] should be not tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d[1] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Map Tests (primitive) 4 ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[1] should be not tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d[1] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+--------------- Map Tests (primitive) 5 ----------------
+Should succeed: Setting taint on a
+    [x] Success1: No error, but did assertion run?
+Should succeed: a should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: b should not be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: c[1] should be not tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d[0] should be tainted
+    [x] Success2: Assertion ran without error
+Should succeed: d[1] should not be tainted
+    [x] Success2: Assertion ran without error
+---------- Test End ------------
+
+Checking results...
+All 589 tests have executed successfully.

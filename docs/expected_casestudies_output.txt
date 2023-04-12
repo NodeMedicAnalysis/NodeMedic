@@ -1,0 +1,127 @@
+This script will install and execute vulnerable Node.js packages.
+Running case study: accesslog
+
+up to date, audited 4 packages in 3s
+
+1 high severity vulnerability
+
+Some issues need review, and may require choosing
+a different dependency.
+
+Run `npm audit` for details.
+tsc -b
+node --trace-uncaught --stack-trace-limit=20 lib/jalangi2-babel/src/js/commands/jalangi.js --analysis src/rewrite.js tests/case_studies/accesslog/run-accesslog.js log_level=error policies=string:precise,array:precise taint_paths=true taint_paths_json=true assert_passed= eval_sink=
+Error: Sink function Function() { [native code] } reached with tainted arguments [object Arguments]
+
+    at /nodemedic/src/Taint.js:390:23
+    at Array.forEach (<anonymous>)
+    at hitFuncSink (/nodemedic/src/Taint.js:382:23)
+    at TCallPre (/nodemedic/src/Taint.js:351:12)
+    at Instrumentation.invokeFunPre (/nodemedic/src/Base.js:123:60)
+    at MyAnalysis.invokeFunPre (/nodemedic/src/rewrite.js:25:43)
+    at invokeFun (/nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:208:37)
+    at /nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:233:41
+    at compile (/nodemedic/tests/case_studies/accesslog/node_modules/accesslog/lib/compile.js:36:116)
+    at callFun (/nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:196:51)
+    at invokeFun (/nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:217:22)
+    at /nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:233:41
+    at accesslog (/nodemedic/tests/case_studies/accesslog/node_modules/accesslog/index.js:30:119)
+    at callFun (/nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:196:51)
+    at invokeFun (/nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:217:22)
+    at /nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:233:41
+    at Object.<anonymous> (/nodemedic/tests/case_studies/accesslog/run-accesslog.js:14:66)
+    at Module._compile (node:internal/modules/cjs/loader:1108:14)
+    at Object.Module._extensions..js (/nodemedic/lib/jalangi2-babel/src/js/commands/jalangi.js:109:12)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)
+    at startProgram (/nodemedic/lib/jalangi2-babel/src/js/commands/jalangi.js:121:19)
+    at MyAnalysis.onReady (/nodemedic/src/rewrite.js:131:13)
+    at Object.<anonymous> (/nodemedic/lib/jalangi2-babel/src/js/commands/jalangi.js:125:17)
+    at Module._compile (node:internal/modules/cjs/loader:1108:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)
+    at node:internal/main/run_main_module:17:47
+/nodemedic/src/Taint.js:388
+                    throw Error("Sink ".concat(f, " reached with tainted arguments ").concat(argsToString(args, function (x) { return taintedIdx.includes(x); }), "\n"));
+                    ^
+
+Error: Sink function Function() { [native code] } reached with tainted arguments [object Arguments]
+
+    at Timeout._onTimeout (/nodemedic/src/Taint.js:388:27)
+    at listOnTimeout (node:internal/timers:556:17)
+    at processTimers (node:internal/timers:499:7)
+Thrown at:
+    at /nodemedic/src/Taint.js:388:27
+    at listOnTimeout (node:internal/timers:556:17)
+    at processTimers (node:internal/timers:499:7)
+make: *** [Makefile:35: analyze] Error 1
+GLOBAL.CTF HIT
+\undefined
+Done
+Running case study: font-converter
+
+up to date, audited 2 packages in 2s
+
+found 0 vulnerabilities
+tsc -b
+node --trace-uncaught --stack-trace-limit=20 lib/jalangi2-babel/src/js/commands/jalangi.js --analysis src/rewrite.js tests/case_studies/font-converter/run-font-converter.js log_level=error policies=string:precise,array:precise taint_paths=true taint_paths_json=true assert_passed= eval_sink=
+Error: Sink function exec(command, options, callback) {
+  const opts = normalizeExecArgs(command, options, callback);
+  return module.exports.execFile(opts.file,
+                                 opts.options,
+                                 opts.callback);
+} reached with tainted arguments [object Arguments]
+
+    at /nodemedic/src/Taint.js:390:23
+    at Array.forEach (<anonymous>)
+    at hitFuncSink (/nodemedic/src/Taint.js:382:23)
+    at TCallPre (/nodemedic/src/Taint.js:351:12)
+    at Instrumentation.invokeFunPre (/nodemedic/src/Base.js:123:60)
+    at MyAnalysis.invokeFunPre (/nodemedic/src/rewrite.js:25:43)
+    at invokeFun (/nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:208:37)
+    at /nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:233:41
+    at new convert (/nodemedic/tests/case_studies/font-converter/node_modules/font-converter/index.js:26:80)
+    at callAsNativeConstructor (/nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:143:20)
+    at callAsConstructor (/nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:154:19)
+    at callFun (/nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:194:26)
+    at invokeFun (/nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:217:22)
+    at /nodemedic/lib/jalangi2-babel/src/js/runtime/analysis.js:233:41
+    at Object.<anonymous> (/nodemedic/tests/case_studies/font-converter/run-font-converter.js:14:66)
+    at Module._compile (node:internal/modules/cjs/loader:1108:14)
+    at Object.Module._extensions..js (/nodemedic/lib/jalangi2-babel/src/js/commands/jalangi.js:109:12)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)
+    at startProgram (/nodemedic/lib/jalangi2-babel/src/js/commands/jalangi.js:121:19)
+    at MyAnalysis.onReady (/nodemedic/src/rewrite.js:131:13)
+    at Object.<anonymous> (/nodemedic/lib/jalangi2-babel/src/js/commands/jalangi.js:125:17)
+    at Module._compile (node:internal/modules/cjs/loader:1108:14)
+    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1137:10)
+    at Module.load (node:internal/modules/cjs/loader:973:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:813:14)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:76:12)
+    at node:internal/main/run_main_module:17:47
+/nodemedic/src/Taint.js:388
+                    throw Error("Sink ".concat(f, " reached with tainted arguments ").concat(argsToString(args, function (x) { return taintedIdx.includes(x); }), "\n"));
+                    ^
+
+Error: Sink function exec(command, options, callback) {
+  const opts = normalizeExecArgs(command, options, callback);
+  return module.exports.execFile(opts.file,
+                                 opts.options,
+                                 opts.callback);
+} reached with tainted arguments [object Arguments]
+
+    at Timeout._onTimeout (/nodemedic/src/Taint.js:388:27)
+    at listOnTimeout (node:internal/timers:556:17)
+    at processTimers (node:internal/timers:499:7)
+Thrown at:
+    at /nodemedic/src/Taint.js:388:27
+    at listOnTimeout (node:internal/timers:556:17)
+    at processTimers (node:internal/timers:499:7)
+make: *** [Makefile:35: analyze] Error 1
+success
+Done

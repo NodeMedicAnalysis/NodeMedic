@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "noImplicitAny": false,
+      "removeComments": true,
+      "preserveConstEnums": false,
+      "sourceMap": true
+    },
+    "files": [
+        "./src/Base.ts",
+        "./src/Config.ts",
+        "./src/DataStructures.ts",
+        "./src/Flib.ts",
+        "./src/GhostFunction.ts",
+        "./src/rewrite.ts",
+        "./src/SafeProxy.ts",
+        "./src/State.ts",
+        "./src/StringEncoding.ts",
+        "./src/Taint.ts",
+        "./src/TaintPaths.ts",
+        "./src/Trace.ts",
+        "./src/Wrapper.ts",
+        "./src/modules/PolicyManager.ts",
+        "./src/modules/PolicyInterface.ts",
+        "./src/modules/ImportedModule.ts",
+        "./src/modules/BaseContext.ts",
+        "./src/modules/Object.ts",
+        "./src/modules/String.ts",
+        "./src/modules/List.ts",
+        "./src/modules/Eval.ts",
+        "./src/modules/Global.ts",
+        "./src/modules/Lodash.ts",
+        "./src/modules/Map.ts",
+        "./src/modules/Set.ts",
+        "./tests/test_header.ts",
+        "./tests/taint_header.ts"
+    ]
+}

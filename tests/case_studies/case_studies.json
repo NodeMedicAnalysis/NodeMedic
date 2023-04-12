@@ -1,0 +1,12 @@
+{
+    "rows": [
+        {
+            "id": "font-converter",
+            "version": "1.1.1"
+        },
+        {
+            "id": "accesslog",
+            "version": "0.0.2"
+        }
+    ]
+}

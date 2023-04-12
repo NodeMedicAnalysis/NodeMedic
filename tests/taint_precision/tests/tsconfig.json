@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "module": "commonjs",
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "outDir": "./_build",
+    },
+    "include": [
+        "./*.ts", 
+        "../../test_header.ts", 
+        "../../taint_header.ts",
+    ],
+    "exclude": []
+}

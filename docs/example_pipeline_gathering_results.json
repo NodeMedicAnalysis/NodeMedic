@@ -1,0 +1,84 @@
+{
+    "rows": [
+        {
+            "id": "a-csv",
+            "index": 53,
+            "version": "2.0.0",
+            "downloadCount": 572,
+            "packagePath": "/nodemedic/pipeline/packages/a-csv/node_modules/a-csv",
+            "hasMain": true,
+            "browserAPIs": [],
+            "sinks": ["exec("],
+            "sinksHit": "",
+            "entryPoints": [
+                {
+                    "functionName": "parse",
+                    "numArguments": 3,
+                    "isMethod": true,
+                    "isConstructor": true,
+                    "fromConstructor": false
+                },
+                {
+                    "functionName": "stringify",
+                    "numArguments": 3,
+                    "isMethod": true,
+                    "isConstructor": true,
+                    "fromConstructor": false
+                }
+            ],
+            "treeMetadata": "",
+            "sinkType": "",
+            "candidateExploit": "",
+            "exploitResults": "",
+            "taskResults": {
+                "downloadCount": { "status": "Continue", "time": 463 },
+                "setupPackage": { "status": "Continue", "time": 844 },
+                "filterByMain": { "status": "Continue", "time": 1 },
+                "filterBrowserAPIs": { "status": "Continue", "time": 215 },
+                "filterSinks": { "status": "Continue", "time": 602 },
+                "setupDependencies": { "status": "Continue", "time": 14684 },
+                "getEntryPoints": { "status": "Continue", "time": 590 }
+            }
+        },
+        {
+            "id": "a-cypress-testrail-reporter-that-works",
+            "index": 55,
+            "version": "1.2.0",
+            "downloadCount": 36,
+            "packagePath": "/nodemedic/pipeline/packages/a-cypress-testrail-reporter-that-works/node_modules/a-cypress-testrail-reporter-that-works",
+            "hasMain": true,
+            "browserAPIs": [],
+            "sinks": ["exec("],
+            "sinksHit": "",
+            "entryPoints": [
+                {
+                    "functionName": "CypressTestRailReporter",
+                    "numArguments": 2,
+                    "isMethod": false,
+                    "isConstructor": true,
+                    "fromConstructor": false
+                },
+                {
+                    "functionName": "validate",
+                    "numArguments": 2,
+                    "isMethod": true,
+                    "isConstructor": true,
+                    "fromConstructor": true
+                }
+            ],
+            "treeMetadata": "",
+            "sinkType": "",
+            "candidateExploit": "",
+            "exploitResults": "",
+            "taskResults": {
+                "downloadCount": { "status": "Continue", "time": 449 },
+                "setupPackage": { "status": "Continue", "time": 979 },
+                "filterByMain": { "status": "Continue", "time": 2 },
+                "filterBrowserAPIs": { "status": "Continue", "time": 225 },
+                "filterSinks": { "status": "Continue", "time": 571 },
+                "setupDependencies": { "status": "Continue", "time": 14104 },
+                "getEntryPoints": { "status": "Continue", "time": 1175 }
+            }
+        }
+    ]
+}

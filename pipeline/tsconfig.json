@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+      "module": "commonjs",
+      "noImplicitAny": false,
+      "removeComments": true,
+      "preserveConstEnums": true,
+      "sourceMap": true
+    },
+    "files": [
+      "./src/functional.ts",
+      "./src/utilities.ts",
+      "./src/pipeline.ts",
+      "./src/package.ts",
+      "./src/actions.ts",
+      "./src/tasks.ts",
+      "./src/main.ts",
+      "./analyses/sinkhit_analysis.ts",
+    ],
+    "exclude": [
+      "node_modules",
+      "packages"
+    ]
+}

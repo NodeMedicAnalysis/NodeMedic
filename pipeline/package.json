@@ -1,0 +1,11 @@
+{
+    "dependencies": {
+        "@types/node": "^18.11.18",
+        "axios": "^0.24.0",
+        "caterpillar": "^6.8.0",
+        "commander": "^8.3.0",
+        "glob": "^7.2.0",
+        "pacote": "^12.0.2",
+        "pretty-hrtime": "^1.0.3"
+    }
+}

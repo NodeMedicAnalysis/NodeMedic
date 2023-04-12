@@ -1,0 +1,110 @@
+{
+    "rows": [
+        {
+            "id": "a-csv",
+            "index": 0,
+            "version": "2.0.0",
+            "downloadCount": "",
+            "packagePath": "/nodemedic/pipeline/packages/a-csv/node_modules/a-csv",
+            "hasMain": "",
+            "browserAPIs": "",
+            "sinks": "",
+            "sinksHit": [],
+            "entryPoints": [
+                {
+                    "functionName": "parse",
+                    "numArguments": 3,
+                    "isMethod": true,
+                    "isConstructor": true,
+                    "fromConstructor": false
+                },
+                {
+                    "functionName": "stringify",
+                    "numArguments": 3,
+                    "isMethod": true,
+                    "isConstructor": true,
+                    "fromConstructor": false
+                }
+            ],
+            "treeMetadata": {
+                "numDeps": 27,
+                "numUniqueDeps": 27,
+                "packageSize": 959441,
+                "treeDepth": 5,
+                "lineCount": 28073
+            },
+            "sinkType": "",
+            "candidateExploit": "",
+            "exploitResults": "",
+            "taskResults": {
+                "setupPackage": { "status": "Continue", "time": 9 },
+                "setupDependencies": { "status": "Continue", "time": 10 },
+                "getEntryPoints": { "status": "Continue", "time": 627 },
+                "runNonInstrumented": { "status": "Continue", "time": 538 },
+                "annotateNoInstrument": { "status": "Continue", "time": 18713 },
+                "runJalangiBabel": { "status": "Continue", "time": 7096 },
+                "runInstrumented": {
+                    "status": "Abort",
+                    "time": 7772,
+                    "result": {
+                        "errorType": "ResultError",
+                        "result": "Taint path JSON output not found:\nENOENT: no such file or directory, access '/nodemedic/pipeline/taint_0.json'"
+                    }
+                }
+            }
+        },
+        {
+            "id": "a-cypress-testrail-reporter-that-works",
+            "index": 1,
+            "version": "1.2.0",
+            "downloadCount": "",
+            "packagePath": "/nodemedic/pipeline/packages/a-cypress-testrail-reporter-that-works/node_modules/a-cypress-testrail-reporter-that-works",
+            "hasMain": "",
+            "browserAPIs": "",
+            "sinks": "",
+            "sinksHit": [],
+            "entryPoints": [
+                {
+                    "functionName": "CypressTestRailReporter",
+                    "numArguments": 2,
+                    "isMethod": false,
+                    "isConstructor": true,
+                    "fromConstructor": false
+                },
+                {
+                    "functionName": "validate",
+                    "numArguments": 2,
+                    "isMethod": true,
+                    "isConstructor": true,
+                    "fromConstructor": true
+                }
+            ],
+            "treeMetadata": {
+                "numDeps": 29,
+                "numUniqueDeps": 28,
+                "packageSize": 4777318,
+                "treeDepth": 4,
+                "lineCount": 132490
+            },
+            "sinkType": "",
+            "candidateExploit": "",
+            "exploitResults": "",
+            "taskResults": {
+                "setupPackage": { "status": "Continue", "time": 10 },
+                "setupDependencies": { "status": "Continue", "time": 5 },
+                "getEntryPoints": { "status": "Continue", "time": 935 },
+                "runNonInstrumented": { "status": "Continue", "time": 943 },
+                "annotateNoInstrument": { "status": "Continue", "time": 24249 },
+                "runJalangiBabel": { "status": "Continue", "time": 27477 },
+                "runInstrumented": {
+                    "status": "Abort",
+                    "time": 13889,
+                    "result": {
+                        "errorType": "ResultError",
+                        "result": "Taint path JSON output not found:\nENOENT: no such file or directory, access '/nodemedic/pipeline/taint_0.json'"
+                    }
+                }
+            }
+        }
+    ]
+}

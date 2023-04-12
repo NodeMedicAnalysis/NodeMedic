@@ -1,0 +1,40 @@
+index ee67f13..6cb53fc 100644
+--- a/src/js/instrument/esnstrument.js
++++ b/src/js/instrument/esnstrument.js
+@@ -33,6 +33,18 @@ if (typeof J$ === 'undefined') {
+         return;
+     }
+ 
++    // Import babel for conversion of code to ES5
++    var babel = require('@babel/core');
++    // Pre-fetch transform and helpers to prevent instrumentation
++    // by Jalangi
++    var babelOptions = {
++        presets: ['@babel/preset-env'],
++        sourceType: 'unambiguous',
++    }
++    babel.transformSync('', babelOptions);
++    require('@babel/helpers');
++    require("regenerator-runtime");
++
+     var global = this;
+     var JSON = {parse: global.JSON.parse, stringify: global.JSON.stringify};
+ 
+@@ -1860,7 +1872,16 @@ if (typeof J$ === 'undefined') {
+ //         StatCollector.resumeTimer("parse");
+ //        console.time("parse")
+ //        var newAst = esprima.parse(code, {loc:true, range:true});
+-        var newAst = acorn.parse(code, {locations: true, ecmaVersion: 6 });
++
++        // Call babel with @babel/preset-env to convert code to ES5
++        try {
++            var codeP = babel.transformSync(code, babelOptions).code;
++        } catch (e) {
++            console.error(`Failed to transform code with babel: ${e}`);
++            var codeP = code;
++        }
++
++        var newAst = acorn.parse(codeP, {locations: true, ecmaVersion: 6 });
+ //        console.timeEnd("parse")
+ //        StatCollector.suspendTimer("parse");
+ //        StatCollector.resumeTimer("transform");

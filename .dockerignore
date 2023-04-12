@@ -1,0 +1,36 @@
+# Ignored by Docker
+
+# git
+.git
+
+# IDE files
+.idea/
+.vscode/
+.devcontainer
+
+# Dependencies
+node_modules/
+lib/jalangi2*
+pipeline/node_modules/
+
+# Build files
+.ipynb_checkpoints*
+src/**/*.js
+src/**/*.js.map
+pipeline/**/*.js
+pipeline/**/*.js.map
+*.stub
+*_jalangi_.js
+*_jalangi_.json
+tests/test_header.js
+tests/taint_header.js
+
+# Cache
+pipeline/packages/
+
+# Output
+taint*.png
+taint*.pdf
+taint*.json
+pipeline/taint*.pdf
+pipeline/taint*.json
