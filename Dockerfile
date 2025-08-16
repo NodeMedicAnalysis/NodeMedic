@@ -2,12 +2,22 @@
 # Debian Buster
 FROM node:15.5.0-buster
 
-# Set up the working directory
-WORKDIR /nodemedic
+# Switch Buster to the archived repositories
+RUN sed -i \
+      -e 's|deb.debian.org/debian|archive.debian.org/debian|g' \
+      -e 's|security.debian.org/debian-security|archive.debian.org/debian-security|g' \
+    /etc/apt/sources.list \
+ && echo 'Acquire::Check-Valid-Until "false";' \
+    > /etc/apt/apt.conf.d/99no-check-valid-until
 
 # Install essential packages
-RUN apt-get -qq update; \
-    apt-get install -qqy bash make vim git graphviz python3 python3-numpy
+RUN apt-get update -qq \
+ && apt-get install -qqy --no-install-recommends \
+      bash make vim git graphviz python3 python3-numpy \
+ && rm -rf /var/lib/apt/lists/*
+
+# Set up the working directory
+WORKDIR /nodemedic
 
 # Install z3
 RUN wget https://github.com/Z3Prover/z3/releases/download/z3-4.8.9/z3-4.8.9-x64-ubuntu-16.04.zip

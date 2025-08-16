@@ -889,6 +889,7 @@ export async function triageFlow(
     }
     const result = proc.checkResult();
     if (result.isFailure()) {
+        const status = result.unwrap();
         if (status == ProcessStatus.Timeout) {
             return Result.Failure(new ProcessTimeoutError(timeoutLen, proc.output()));
         }

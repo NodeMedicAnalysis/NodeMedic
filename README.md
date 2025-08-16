@@ -3,6 +3,10 @@
 This is the repository for NodeMedic, an end-to-end dynamic provenance analysis 
 tool for vulnerability discovery, triage, and confirmation in Node.js packages.
 
+Please note that this repository is **no longer actively maintained**; please instead
+**use our follow-up work, [NodeMedic-FINE](https://github.com/NodeMedicAnalysis/NodeMedic-FINE)**, 
+which has an updated version of NodeMedic at its core.
+
 ## Docker installation
 Run the following command to build the docker container:
 
